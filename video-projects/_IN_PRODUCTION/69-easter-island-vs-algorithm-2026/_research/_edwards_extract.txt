@@ -1,0 +1,962 @@
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+Copyright © 2018 MAA 
+Open Access. Printed in Greece. All rights reserved. 
+ 
+DOI: 10.5281/zenodo.1478020 
+CONSOLIDATION OF THE RAPANUI ASTRONOMY 
+CONCEPT INVENTORY AND RE-APPRAISAL 
+OF APPLIED ASTRONOMIC OBSERVATION 
+AT PAPA UI HETU’U, RAPA NUI 
+Alexandra Edwards*1,2, Barthelemy d’Ans2,3 and Edmundo Edwards1,2  
+1 Pacific Islands Research Institute 
+2 Rapa Nui Planetarium 
+3Universidad Peruana de Arte Orval 
+ 
+Received: 28/02/2018 
+Accepted: 04/06/2018 
+*Corresponding author: Alexandra Edwards (alexandraedwards@yahoo.com.au) 
+ 
+ 
+ABSTRACT 
+Rapa Nui, the easternmost settlement and most isolated trade outpost in ancient Polynesia, represents one of 
+the most ambitious feats in Polynesian wayfinding, and by default reflects the high level of competence in 
+navigation and interpretation of astronomical and natural phenomena, currently a popular field of inquiry 
+in Polynesian ethnoastronomy. However, as skywatching was not limited to navigation, the full scope of 
+Rapanui applied astronomical observation and complexity of astronomical devices was much broader. 
+Observatories, calendric calibration systems, “star-maps,” and structures with astronomical alignments, 
+have all been identified for Rapa Nui, yet the two main challenges confronting researchers is the scarcity of 
+extant information, as well as degradation and site location due to errors in the official mapping of the 
+island. The present investigation re-examines and extends the Astronomy concept inventory of the ancient 
+Rapanui, with regards to the toponymy of local stars and asterisms, and an inquiry into the stars and 
+methods used by traditional navigators to locate Rapa Nui in past times. The results have been analyzed 
+within both a local and regional context. In addition, our team did a re-appraisal of the astronomical 
+functions of the Matariki (Pleiades) stone and related petroglyphs in the area of Papa Ui Hetu’u (star-gazing 
+rock) on Poike Peninsula, which E. Edwards and Antonio Belmonte had investigated in 2004. For the first 
+time, this collected data was evaluated within the context of a digital planetarium, permitting the review and 
+identification of alignments between astronomical phenomena and sites of observation as if viewed in situ 
+and in the pertinent chronology; together with photogrammetry/3D-modelling of astronomical devices at 
+Papa Ui Hetu’u, these techniques offer a new and more precise line of research, rendering intriguing results. 
+ 
+ 
+ 
+KEYWORDS: archaeoastronomy, ethnoastronomy, toponymy, Easter Island, Rapa Nui, Polynesia, planetar-
+ium, 3D modelling 
+ 
+140 
+Α.EDWARDS et al 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+1. INTRODUCTION 
+The purpose of this paper is to consolidate the 
+Rapanui Astronomy Concept Inventory mainly ob-
+tained from the works of Routledge (1911-1923; 
+1919) Englert (1974), and Métraux (n.d.; 1960), as 
+well as the previous ethnographic research of E. 
+Edwards (2010, 2013). Previous studies have built 
+upon the works of Routledge and Métraux, which 
+are invaluable but brief, and contain several incon-
+sistencies due to the inaccurate interpretation of 
+data. Routledge and Métraux collected ethnographic 
+information from direct sources, however, subse-
+quent scholars without access to the original material 
+built upon the errors of their previous colleagues, 
+incrementing and confirming fallacies, which upon 
+closer inspection yielded an assembly of unreliable 
+results. Based upon the field notes of both Routledge 
+and Métraux, identifying errors, offering a few 
+amendments, and hypothesizing on the correct in-
+terpretation of specific elements we were able to 
+form a compendium of the terms used to designate 
+different types of heavenly bodies (planets, aster-
+isms, and individual stars), ultimately offering an 
+updated and exhaustive list of Rapanui star names, 
+as well as their meaning and cultural significance. 
+Regarding Papa Ui Hetu’u, our team re-appraised 
+the cultural features and landscape context of this 
+observatory, adding alignments to the Pleiades (or 
+June solstice) and the path of the stars that Polyne-
+sian navigators would have used to locate Rapa Nui. 
+2. PREVIOUS STUDIES AND 
+METHODOLOGY  
+Of the many scholars that have worked on Rapa 
+Nui only a few have covered the subject of ethnoas-
+tronomy. Ferdon (1961), Mulloy (1975), and Liller 
+(1986, 1989, 1993, 2000, 2004) worked on the island 
+between 1955-2004, however most of their work 
+focused on archaeoastronomy, recording alignments 
+between the famous Rapanui ruins and celestial 
+phenomena, and less on the cultural aspect regard-
+ing the purpose behind these orientations beyond 
+basic time-keeping. Excluding E. Edwards and his 
+team, the few scholars that collected information 
+about the names of stars and their significance in a 
+cultural context are Routledge (1911-1923; 1919), 
+followed by Englert (1974), and Métraux (n.d.; 1960). 
+However, all of their collected data does not amount 
+to much if presented individually. Routlege worked 
+on Rapa Nui between 1914 and 1915. Her principal 
+informants were Kapiera Maherenga and Parlemón 
+Te Haha. Maherenga, once a competitor (hopu manu) 
+in the Bird-man cult competitions was born ca. 1846 
+and was a member of the Ure o Hei clan via paternal 
+descent and the Hamea Clan from his maternal side. 
+Maherenga provided most of the star names record-
+ed by Routledge. Te Haha was born near Maunga 
+Kou’a in approximately 1832. He was an ariki paka 
+nobleman of the prestigious Miru clan and was a 
+member of the noble entourage of paramount chief 
+Ngaara. His nephew Charlie Teao was one of Mét-
+raux’s principal informants. Another of Routledge’s 
+informant was José Fati (Hati) Rongo Pua Tea, Fati 
+was the father of Isaías Fati, one of the main inform-
+ants of Englert, Métraux, and E. Edwards. 
+Englert’s main informants were the previously 
+mentioned I. Fati, as well as Rafael Haoa, Mateo 
+Hereveri, and Santiago Pakarati. Haoa was the in-
+formant for a host of present-day ethnographers 
+working on Rapa Nui. Hereveri, a nobleman of the 
+Miru clan was considered an authority regarding 
+Rapanui lore. Hereveri was also an informant to E. 
+Edwards. Pakarati was the son of Rapanui catechist 
+Nicolás Pakarati Ure a Potahi (also an informant of 
+Routledge and Métraux). Métraux’s informants were 
+Victoria Rapahango Tepuko and Charlie Teao. 
+Rapahango was also a Miru Clan member and she 
+had learned much from Mateo Hereveri and her 
+uncle Parlemon Te Haha who had lived with her in 
+her youth; both men had been informants of 
+Routledge. Teao, was a nephew of Te Haha and a 
+grandson of Tomenika Vaka Tuku Onge, also 
+Routledge´s informant. 
+For this paper we reviewed the original and pub-
+lished works of Routledge, Métraux, Englert, and E. 
+Edwards, as well as the dictionaries of Tregear (1891) 
+and Churchill (1912)  
+3. CULTURAL CONTEXT 
+The same as other Polynesians, the Rapanui visu-
+alized the celestial sphere as several superimposed 
+heavens, which together with the stars and constella-
+tions were believed to be the abode of the gods. The 
+careful observation of the sky was useful for naviga-
+tion but also to determine the time of the year, estab-
+lishing a ritual calendar and regulating farming and 
+fishing activities. Astronomer priests or skywatchers 
+studied the Moon and stars, and less often the Sun, 
+from special observatories built in places with the 
+best vantage point for each astronomic event, an-
+nouncing when festivities, ceremonies, prohibitions, 
+and the different seasons started and ended. A total 
+of 58 alignments have been registered on Rapa Nui, 
+with observatories (tupa) oriented to significant ce-
+lestial markers, most to the Pleiades and Orion’s 
+Belt, but also Vega, Alpha Beta Centauri, in a 
+North—South axis, etc….(Edwards and Belmonte 
+2004; Edwards and Edwards 2010). These construc-
+tions reflect a shared bank of knowledge that dates 
+back to the Austronesian roots of the Rapanui peo-
+ple, and which evolved for very practical reasons: 
+RE-APPRAISAL OF APPLIED ASTRONOMIC OBSERVATION AT PAPA UI HETU’U, RAPA NUI 
+141 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+subsistence, immigration and trade. Clark has calcu-
+lated that “the probability of these alignments being 
+accidental is 10,000,000 to 1.” (Edwards and Clark 
+1984).  
+Makemson (1941) recorded 772 star names else-
+where in Polynesia, and skywatching was taught in 
+special schools. In Rapa Nui unfortunately much of 
+this information did not survive the great cultural 
+and social upheaval as a result of outside contact, 
+colonization, and missionary proselytization. 
+Like other Polynesians, the Rapanui had an annu-
+al cycle of activities that determined what sort of 
+chores and rituals people carried out during each 
+month of the year, evidently linked to the weather 
+and the seasons. Astronomical phenomena helped 
+astronomer priests (skywatchers) determine the dif-
+ferent times of the year, divided between periods of 
+rain and drought, a season of plenty and of want. 
+Since the chiefs were the medium by which deified 
+ancestors provided for their descendants by making 
+the plants grow and animals multiply, the entire clan 
+ensured the success of their subsistence activities by 
+making offerings and sacrifices to honor the gods in 
+an agricultural cycle that in other Polynesian islands 
+was called Te Fekai Nga Atua (the gods produce 
+food; Edwards and Edwards 2013). The Rapanui diet 
+depended mainly on agricultural products, chicken, 
+and fish, in that order. The Rapanui carried out sev-
+eral rituals related to the planting and harvest of 
+their most important crops. The harvest was im-
+portant not only as related to food production and 
+surplus, but through feasting and ceremonies it was 
+also of great social and symbolic significance. Food-
+sharing expressed kinship ties and solidarity, and 
+validated a set of principles, social codes, rights and 
+duties. The opening of the deep-sea fishing season in 
+October/November was also widely celebrated. It 
+was imperative that the seasonal activities and feasts 
+should be performed at the right and auspicious 
+times, and that was the jurisdiction of skywatchers. 
+Aside from the lunar months, specific annual activi-
+ties and events were marked by the first appearance 
+of specific stars at dusk and dawn. Since there was a 
+fair amount of prediction involved in their work, 
+these specialized priests also delved into the world 
+of prophecy and magic. 
+4. RESULTS 
+Polynesians had names for over 700 stars, and it 
+was believed that many of them were placed in the 
+sky by the gods to simply humor humans while 
+others were thought to be the eyes of deified ances-
+tors (Makemson). This explains why several Polyne-
+sian star names include the term mata, meaning 
+“eye” (Ibid). The generic Rapanui name for stars, 
+asterisms, and constellations is hetu’u, a term with a 
+root common to all Polynesian languages, however, 
+Eastern Polynesians grouped stars to form figures 
+that differed from those of Western Polynesia with 
+only the names of the most important calendar stars 
+remaining constant, specifically the Pleiades (Ma-
+tariki) and Orion (Tautoru; Makemson, Tregear, 
+Churchill). 
+We were able to record 25 star names (three of 
+which remain undetermined in relation to classic 
+astronomy terms (Mere, Ehuo/Ehua, and Pau), in 
+addition to the names for the Milky Way (Te Ngo´e), 
+and Venus (various terms) and Mars (Matamea). We 
+amended the designation of several Rapanui star 
+names in relation to the previous concept inventory. 
+We also added Tau Ehu for Sirius, and Tauhoru and 
+Hetu’u Tea in addition to the existing names for 
+Venus. Four “new” star names were added: Atutahi, 
+He Mata/Mataa Te Tautoru, Ehuo/Ehua, and Pipiri, 
+while two were deleted as a duplicates (Vari 
+Hariu/Horia and Hare a Tanga). Sirius and Vega 
+had multiple Rapanui names, which seems accurate 
+for the latter, but may be a source error for the for-
+mer. Orion’s Belt on the other hand is both a constel-
+lation of six stars (Etui = Orion´s Belt + Sheath), but 
+is called Tautoru when referring only to the belt 
+(Routledge n.d., Metraux n.d.). We also revised the 
+translation of Rapanui stars names, some of which 
+have more than one interpretation. A list of the com-
+plete and revised Rapanui astronomy concept inven-
+tory appears in Appendix 1. The table in Appendix 1 
+starts with the terms for the Milky Way, followed by 
+the planets Mars and Venus, continuing with the 
+names of fourteen asterisms and constellations, and 
+ending with eleven single star names. These are pre-
+sented in alphabetical order within each of their 
+categories. 
+For the Rapanui, the Milky Way was a mythical 
+marine creature, a non-fearsome sea monster of 
+sorts. Regarding the planets, the Rapanui realized 
+that Venus and Mars were different, that they do not 
+twinkle, and move unlike stars, however the distinc-
+tions stopped there, with bright stars and planets 
+both being called hetu’u purapura (Churchill).  
+As for the planets, only the Rapanui names for 
+Venus and Mars survived to the present day, alt-
+hough it is likely that like other Polynesians they 
+would have also recognized the other visible planets, 
+namely Mercury, Saturn, and Jupiter (Makemson, 
+Tregear). 
+Important time-keeping stars and asterisms were: 
+Matariki (the Pleiades), Nga Vaka (Alpha and Beta 
+Centauri), Mere (possibly Vega), Tau Ehu or Te Pou 
+o Te Rangi (Sirius), and Atutahi (Canopus), as well 
+as the constellation Orion, which the Rapanui divid-
+ed into six separate parts: E Tui (Orion’s Belt and 
+sheath - 6 stars), He Mata/Mataa te Tautoru (Bella-
+142 
+Α.EDWARDS et al 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+trix and probably Meissa and ȹ Ori 1 and 2), Tauto-
+ru (Orion’s Belt), Po’o or Po Roroa (Saiph), Rei a 
+Tanga (Betelgeuse), and Vari Koreha (Rigel). Mata-
+mea (Mars) was also used as a calendar marker to-
+gether with the Pleiades (Matariki), Orion’s Belt 
+(Tautoru), and Sirius (Tau Ehu or Te Pou o Te 
+Rangi). The events that each of the above marked 
+can be seen in Appendix 1. Other stars that stand out 
+are Nga Vaka (Alpha and Beta Centauri), which in 
+the Southern Hemisphere may be used to find the 
+South cardinal position in relation to Crux (Tatauro), 
+and Antares (Te Hau Vaero), the traditional star 
+used to mark the latitude position of Rapa Nui in 
+traditional Polynesian navigation when at its zenith; 
+islands were marked by the brightest stars that 
+passed directly above them and Antares may be seen 
+at 89°19’07.5” over Rapa Nui. 
+ 
+Three out of 25 collected Rapanui star names in-
+clude the word mata, which as mentioned previous-
+ly, is characteristic of the Polynesians, who consid-
+ered that some stars were the watchful eyes of im-
+portant ancestors (Edwards and Edwards 2013). In 
+addition, the planet Mars was called Matamea, but 
+in this case it is probably best to interpret it in refer-
+ence to color and the custom of visualizing stars as 
+eyes, rather than it being the eye of a particular per-
+son. 
+5. OTHERS CONSIDERATIONS 
+In addition to star names we also collected a list of 
+terms that are related to astronomical concepts, 
+(from Churchill, Métraux n.d., and Englert). Many of 
+these had not been recorded together before (see 
+Table 1). 
+Table 1. Additional Rapanui Astronomy Terms 
+Rapanui Name 
+Translation 
+Comments 
+Source 
+Api te Mahina e te Ra’a 
+The Sun presses the Moon 
+A lunar eclipse? 
+3 
+Hetu’u Kokiri 
+Shooting star 
+ 
+1 
+Hetu’u Pupura 
+1. Planet or very bright star 2. –mai. To ogle, stare 
+Pupura is to shine bright 
+1 3 
+Hetu’u Rere 
+Meteor 
+ 
+1 
+Hetu’u Ave 
+Comet 
+ 
+2 
+Hetu’u Viri 
+Shooting star, meteor 
+ 
+2 
+Hiti 
+To rise (regarding the light of the moon, sun, stars) 
+ 
+2 
+Homo 
+Meteorite, meteoroid crater 
+ 
+2 
+Kai te Mahina e te Ra’a 
+The Sun eats the Moon 
+A lunar eclipse? 
+3 
+Kai te Ra’a e te Mahina 
+The Moon eats the Sun 
+A solar eclipse? 
+3 
+Kihi Ra’a 
+Ray of sunlight 
+ 
+3 
+Kihi Mahina 
+Moonbeam 
+ 
+3 
+Me’e Nui Te Hetu’u 
+Sky with many stars 
+ 
+3 
+Ruaroa 
+Tropic of Capricorn 
+ 
+1 
+Uero 
+Comet, twilight, a ray, radiant star 
+ 
+1 
+Verovero 
+To twinkle like the stars 
+ 
+1 
+ 
+Of the new terms listed above, there are a few that 
+stand out because of there telling implications. First 
+of all, there are several terms for different kinds of 
+eclipses, all of them indicating that the Rapanui the-
+orized that it was the sun and moon that caused 
+eclipses. In addition, the word “homo” or meteoroid 
+crater indicates that this event must have occurred 
+on the island in past times, and perhaps more than 
+once.  
+6. THE PAPA UI HETU’U OBSERVATORY.  
+In 1914, K. Routledge's informants told her that 
+astronomer priests climbed Poike peninsula, on the 
+Eastern headland of the island, during the lunar 
+month of Tuaharo (February/March) to watch the 
+rising of the Pleiades from Papa Ui Hetu'u (Figure 
+1), which in the Rapanui language means "rock to 
+watch the stars from".  Santiago Pakarati showed 
+this boulder to E. Edwards in 1960, consisting of a 
+basalt block of greyish color (Munsell chart 2.5Y-7/1) 
+that probably originated in one of the lava flows 
+located in the surrounding area that was purposely 
+moved to its present location. The upper surface of 
+the boulder has 13 cupule-like depressions of differ-
+ent sizes and depths that most probably are a conse-
+quence of the natural cooling process of the lava and 
+later erosion, but which locals have long considered 
+to be akin to the Pleiades. In 2005, E. Edwards and A. 
+Belmonte found that this spot was ideal for observ-
+ing the heliacal rise of many important local calen-
+dric stars, as it is completely open towards the East-
+ern quadrant of the island. 
+ 
+Figure 1. Papa Ui Hetu´u 
+The boulder is located 178 m above sea level at 
+109°14'31. 80" W, 27°5'44. 21 S. It lies east of Pua Ka 
+Tiki, the peak of Poike volcano. As it has an irregular 
+shape, its approximate dimensions are: 1 m high by 
+1.5 m long and 0.80 m in width. It weighs approxi-
+mately 300 kgs. The photogrammetric mould that we 
+made of it appears in Figure 2. 
+RE-APPRAISAL OF APPLIED ASTRONOMIC OBSERVATION AT PAPA UI HETU’U, RAPA NUI 
+143 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+ 
+Figure 2. Comparative images of the boulder known as 
+Papa Ui Het'u--photograph on the left, and  photogram-
+metry mould on the right, which highlights the distribu-
+tion and depth of the cupules said to represent 
+the Pleiades. 
+ We proceeded to register the landscape’s profile 
+surrounding the Papa Ui Hetu’u site with a fisheye 
+lens, and established several checkpoints upon the 
+terrain, so we could later use it to correct the plane-
+tarium digital view (Stellarium, Figure 3). 
+ 
+Figure 3. (A) development of the 360° panorama. (B) Im-
+portant elements in its landscape. (C) Landscape profile 
+with fisheye lens and mask used in the stellarium format. 
+Installing the landscape profile in Stellarium and repro-
+ducing the observed event. Field check of the landscape 
+profile altitude, plus the time. azimuth, and sunset on July 
+20, 2017. 
+This image was later edited in Photoshop and we 
+then proceeded to erase completely the sky leaving 
+only the profile and a transparent background. We 
+then used this masked image in the profile of the 
+digital planetarium and inserted into it the coordi-
+nates obtained from our GPS and reoriented the 
+profile to show the most prominent elements of the 
+landscape with the correct azimuth. Finally we veri-
+fied the model to see if it adjusted to reality, by su-
+perposing an astronomic event, which in this case 
+was the sunset of July 20, 2017, and check that the 
+hour, elevation, and it profile, together with the 
+height and azimuth of the Sun, were correct with the 
+model. Using a Google Earth map, we proceeded to 
+verify the area of the horizon that can be observed 
+from there, and also to make sure that this adjusted 
+to reality. This method served to locate in a more 
+exact manner all the cartographic elements con-
+tained in our profile. 
+We were interested in measuring the intervals be-
+tween the angles and the azimuths observed on the 
+nearly 180° wide landscape view from the stone, 
+paying special attention to azimuths 302 and116, 
+while also checking if there was any relationship to 
+the heliacal rising or setting of any important Ra-
+panui calendar stars or the Pleiades as as suggested 
+in oral tradition (Figure 4). 
+ 
+Figure 4. (A) Ocean view azimuths and intervals upon an 
+oceanic horizon (B) Detail of the visible area of land and 
+its geographic markers (C) Perspective view of the area 
+that can be observed from Papa Ui hetu´u. 
+7. ANALYSIS OF THE CULTURAL EVENTS 
+RELATED TO THIS SITE AND ITS PHYSI-
+CAL LOCATION 
+We carried out a basic survey of all the surround-
+ing area to locate any contiguous archaeological 
+remains, as well as specific places that could be asso-
+ciated with Rapanui cultural landscape. 
+On the East side there are three trachyte domes 
+that are the most conspicuous elements in the land-
+scape (Figure 5). On the northernmost dome, lie the 
+remains of a disfigured statue (moai) with no plat-
+form or ahu, which is clearly visible from Papa Ui 
+Hetu'u and  may have bee placed there intentionally. 
+The southernmost dome is associated with several 
+important oral traditions: on its southern foothill 
+there is cave that was the abode of a group sky-
+watchers who lived permanently with their acolytes, 
+while above and to the left of the cave there is a large 
+rock carving called Vai a Heva (water of Heva) that 
+consists of a face with a large protruding eyes and a 
+gaping mouth that served as a basin to collect rain-
+water. To the East, at a distance of approximately 
+200 m in a E-SE direction, lies a small basalt outcrop 
+with several petroglyphs of fishhooks of different 
+sizes and shape. These petroglyphs were previously 
+registered by E. Edwards and G. Lee, and now we 
+added a photogrametric record of them (Figure 6). 
+144 
+Α.EDWARDS et al 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+Significantly, petroglyphs of fishhooks and deep sea 
+creatures, such as tuna and shark, are also present in 
+several Rapanui sites where skywatchers were 
+known to observe the night sky. 
+ 
+Figure 5. View from Papa Ui Hetu'u to the three trachyte 
+domes in Poike; these were also exploited for trachyte and 
+several small statues raised on platforms on the eastern 
+headland of the island were sourced there. 
+ 
+Figure 6. View towards Papa Ui Hetu'u as seen from the 
+unnamed outcrop with fishhook petroglyphs. The cave 
+where the skywatchers are said to have lived with their 
+acolytes and the stone water basin known as Vai a Heva 
+are also visible from this spot.   
+Lastly, to the Northeast there is a ceremonial 
+platform that lies in a perfect East-West position. The 
+relationship between the sites and/or significance of 
+this emplacement remains to be determined. 
+8. ANALYSIS OF THE CULTURAL EVENTS 
+RELATED TO THIS SITE AND ITS PHYSI-
+CAL LOCATION 
+By inputting our collected data into Stellarium we 
+were able to determine the following: 
+There are two zenithal celestial objects that pass 
+directly over Rapa Nui and Papa Ui Hetu'u. One is 
+Te Hau Vaero (Antares), and the other is Ko Tau 
+Erua Ehu, which in our consolidation of star names 
+we found to possibly represent Castor and Pollux or 
+alternatively Wezen and Adhara, which are two 
+bright stars in the Canis Major constellation. In past 
+times, zenithal stars were known as pito (umbilicus) 
+in many parts of Polynesia, and their path was con-
+sidered to mark the umbilicus of the sky for the spe-
+cific island that these stars passed directly over. Zen-
+ithal stars were of prime importance in traditional 
+Polynesian navigation, serving to exactly locate each 
+of the islands these stars marked. Interestingly, An-
+tares is visible during the winter months, while 
+Wezen and Adhara may be observed in the Summer, 
+thus if Ko Tau Erua Ehu indeed refers to Wezen and 
+Adhara it is possible to consider that traditional nav-
+igators would have been able to more easily locate 
+Rapa Nui year-round. Now, determining what are 
+the most propitious times of the year to travel to 
+Rapa Nui from elsewhere in Polynesia is a subject of 
+another study. 
+Most significantly, from Papa Ui Hetu'u it is pos-
+sible to observe the entire path of the Pleiades from 
+heliacal rising to heliacal setting. Such observations 
+were very important to the ancient Rapanui as the 
+first full Moon after the heliacal rising of the Pleiades 
+marked the first night of the year and opened a time 
+of festivities and island-wide rejoicing. This was also 
+true in most of Polynesia. Due to the latitude of Rapa 
+Nui, the Pleiades follow nearly the same trajectory of 
+the path of the Sun on the June solstice. To deter-
+mine approximately when the Rapanui new year 
+began depends very much on the visible altitude of 
+the Pleiades at the time of observation, which would 
+have been in the very early morn, before sunrise. On 
+Rapa Nui, the Pleiades disappear for a few months, 
+becoming visible once again before sunrise in the last 
+two weeks of June, considering that it is best ob-
+served the higher it is in the sky, 20-30 degrees de-
+grees above the horizon. The Rapa Nui new year 
+would have then begun on the first full Moon after 
+this celestial event. Conversely, the observation of 
+the Pleiades high in the sky shortly after sunset in 
+November, marked the opening of the deep sea fish-
+ing season on Rapa Nui.   
+9. CONCLUSIONS 
+Although much has been lost regarding the astro-
+nomical knowledge of the ancient Rapanui, the ex-
+tant names recorded here adeptly convey the 
+breadth and richness of Rapanui mythology and 
+calendrics. The stars that were remembered up to 
+modern times were the most important ones, part of 
+a complex annual cycle of activities, both ritual and 
+practical. They also point to a knowledge base that 
+hails back to the Lapita ancestors of the Rapanui, as 
+RE-APPRAISAL OF APPLIED ASTRONOMIC OBSERVATION AT PAPA UI HETU’U, RAPA NUI 
+145 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+is the case with Matariki and Tautoru (i.e. the Pleia-
+des and Orion’s Belt), but also that places Rapa Nui 
+within a contact network extending to the Tuamotu 
+Islands and Tahiti (i.e. the moral tale regarding the 
+repentant jealous husband and/or the selfish par-
+ents). It seems significant that an important number 
+of Rapanui stars refer back to the legendary home-
+land of Hiva, and to its infamous persons and nota-
+ble culture heroes. The same as elsewhere in Polyne-
+sia, Rapanui ethnoastronomy went beyond naviga-
+tion, serving a religious purpose associated to a be-
+lief system that on Rapa Nui survived until the mid-
+nineteenth century. Evidently, the present Rapanui 
+star concept inventory is incomplete as there must 
+have been many more star names than those pre-
+sented here. Nevertheless, we have compiled an 
+exhaustive list, benefitting from a comparative anal-
+ysis of the various ethnographic sources. The num-
+ber of clarifications and amendments to the previous 
+concept inventory serves as a reminder of the pitfalls 
+of relying on secondary source materials when car-
+rying out this sort of work. Considering the total 
+number of compiled star names, it seems significant 
+that we were able to add two entries and provide a 
+much more accurate index of star names, even if a 
+few items remain undetermined. Lastly, it is im-
+portant to note that the multiplicity of particular star 
+names is simply a sign of a healthy evolution of con-
+cepts, in accordance with cultural growth and in 
+response to societal changes. In the case of dual 
+meanings, oftentimes this is purposeful, in much the 
+same way that the connotations of words in a verse, 
+lend themselves to a poetic layering of meanings. 
+Ethnoastronomy and the unique Rapanui idiosyn-
+crasy deserve as much. 
+As the Poike peninsula forms the eastern 
+headland of the island, it’s location is a priviledged 
+place to observe the heliacal rise of certain celestial 
+objects from the ocean. The rock known as Papa Ui 
+Hetu’u undoubtely was intentionaly placed in that 
+position and although its cupules are of natural 
+origin, the islanders identified them with the 
+Pleiades (Matariki) and believed they held some 
+magical power (mana). This was most probably due 
+to the fact that from that precise location it was 
+possible to observe the rising and setting of the 
+Pleiades, the foremost calendar stars of the Rapanui 
+and all Polynesians. Diverse cultural remains located 
+in the vecinity of this site, testify to the presence of 
+specialized observers or skywatchers as mentioned 
+in their oral traditions. 
+ 
+Appendix 1. The Rapanui astronomy concept inventory. 
+Rapanui Name 
+Translation 
+Star / Asterism 
+Comments 
+Source 
+Te Ngo’e 
+Fabulous Marine Crea-
+ture 
+The Milky Way 
+A fabulous marine creature 
+5 
+Matamea 
+Red Eye 
+Mars 
+One “star” 
+Observed from Poike 
+Announced: start of Koro festival; 
+ egg hunt in Dec. with Matariki,  
+ Tau Ehu, & Tautoru  
+Ominous with Pau and Tautoru  
+ appearing in Oct./Nov. 
+2, 4 
+ 
+ 
+Taurua or Hetu’u 
+Tea,  
+ or Tauhoru and  
+ Hetu’u Ahi-ahi 
+Beautiful Two (Venus) 
+and 
+ Evening Star 
+Venus 
+Tuaurua refers to Venus (archaic) 
+Presently Hetu’u Ahi-ahi  
+3, 6, 7 
+ 
+Taurua or Hetu’u 
+Tea,  
+ or Tauhoru and 
+ Hetu’u Popo-
+hanga 
+Beautiful Two (Venus) 
+and 
+ Beautiful Bucking to & 
+fro  
+ or Morning Star  
+Venus 
+Tuaurua refers to Venus (archaic) 
+Tauhoru is a historical name 
+Presently Hetu’u Popohanga  
+3, 6, 7 
+ 
+Ehuo or Ehua 
+- 
+—Undetermined— 
+A large constellation 
+3 
+E Tui 
+The Expelled 
+Orion´s belt and sheath 
+Six stars 
+2, 3 
+He Mata Te 
+Tautoru 
+The Eyes of the Beautiful  
+ Three  
+Bellatrix and possibly 
+Meissa  
+ and ȹ Ori 1 and 2  
+Two “stars” 
+2, 6 
+He Kete 
+Basket 
+Possibly Aldebaran and  
+ 𝚫,𝝝,ε Tauri or Pegasus 
+Four stars  
+ 
+2, 6 
+Ko Tau Erua Ehu 
+Two Beautiful Firebrands 
+Possibly Castor and 
+Pollux  
+ or Wezen and Adhara 
+Two stars near Canis Major  
+W&A: Antagonic to Antares, zenithal  
+ star?  
+2, 3, 6 
+Ko Toe Ko Peu  
+ Renga 
+Wake of the Fine  
+ Pickaxe/Energy 
+Menkalinan and Capella 
+Rnga is energy, but also to paint something 
+ yellow or red (sacredness) 
+2,, 5, 7 
+Matariki 
+The Small Eyes or 
+ The Eyes of the Chief 
+The Pleiades 
+Six stars 
+Announced: New Year; first harvests;  
+ bountiful season; Bird-man races;  
+ egg hunt in Dec. with Matamea,  
+ Tau Ehu, and Tautoru  
+2  
+Pipiri 
+The Deprived 
+Clustered star pair on the 
+tail end of Scorpius 
+May have marked the December season 
+1, 2, 4, 
+5, 8, 9 
+146 
+Α.EDWARDS et al 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+Nga Rau Hiva 
+The Sprout from Hiva or 
+ Twins or The Weak 
+The Hyades 
+Hiva = Rapanui homeland 
+6, 3, 5 
+Nga Toa Rere 
+The Flying Sugarcane 
+Stars in Ursa Major 
+- 
+6 
+Nga Vaka 
+The Canoes 
+Alpha & Beta Centauri 
+Important for navigation 
+Canoes of founders 
+2, 5 
+ 
+Taura Nukunuku The Nukunuku Rope 
+Procyon and Gomeisa 
+Two stars 
+2, 6 
+Tautoru 
+The Three Handsome 
+Ones  
+Orion’s Belt 
+Three stars  
+Announced: colder rainy season  
+ (with Tau Ehu); start of Paina  
+ festivals; egg hunt (with Matariki  
+ and Tau Ehu); time for planting 
+Legendary father and 2 sons (from  
+ Hiva) 
+2 
+Tatauro 
+Cross 
+Crux 
+Te Tatauro (modern name) 
+Four to five stars 
+2  
+Atutahi 
+The Wayward One or 
+ The First Apprentice 
+Probably Canopus 
+End of Paina (with Tautoru) 
+Start of the planting season 
+The first of all stars, chief of the others 
+1, 3, 
+3, 6 
+Ko Para Tahiri 
+Tahiri’s Club or Para´s 
+Fan,  
+ or Decayed Fan 
+Probably Arcturus 
+- 
+3, 6 
+Ko Te Mata 
+Pu/Po  
+ Nui 
+Eye With a Big  
+ Hole/Darkness 
+Spica 
+- 
+6 
+Mere 
+Voice of Joy 
+—Undetermined— 
+ Some possibility it was 
+Vega  
+ or Corvus 
+If Vega, marked: Opening of the eel  
+ fishing season and ritual tattooing 
+ at Orongo 
+1, 3 
+6, 7  
+Pau 
+Open Piercing  
+—Undetermined— 
+Probably one star  
+Announced: Ill-omen when appearing  
+ in Oct./Nov. with Tautoru and  
+ Matamea  
+3, 4, 6 
+Po’o or Po Rongo O Rongo’s Darkness 
+Probably Achernar 
+- 
+6 
+Po’o or Po Roroa 
+The Great  
+ Darkness/Infinity 
+Saiph 
+- 
+2 
+Rei a Tanga 
+Tanga’s Breastplate  
+Betelgeuse  
+Wife and mother of men of Tautoru 
+2 
+Tau Ehu or  
+ Te Pou o Te 
+Rangi 
+Beautiful Firebrand or 
+ The Post of the Sky 
+Sirius 
+Announced: colder rainy season with  
+ Tautoru; Dec. egg hunt with Matariki  
+ and Tautoru 
+2, 3, 6 
+Te Hau Vaero 
+ 
+Roostertail Feather  
+ Headdress 
+Antares 
+Rapanui zenithal star? 
+ 
+2, 6 
+Vari Koreha 
+Fearsome Eel/Centipede 
+ Curling Into a Circle 
+Rigel 
+- 
+2, 6 
+ACKNOWLEDGEMENTS 
+Would like to thank our informants Valentino Riroroko and Alberto Hotus, who both put in an extra amount 
+of effort to share their knowledge with us, as elders and leaders of the Rapanui people. We would also like 
+to extend our thanks to Christopher Browder who secured the copy of the unpublished field notes of Alfred 
+Métraux, which proved invaluable to our studies. 
+REFERENCES 
+Belmonte, J. A., and Edwards, E. (2007) Astronomy and landscape in Easter Island: new hints at the light of 
+ethnographic sources. Ethnography Papers for the Annual Meeting of the SEAC (European Society for 
+Astronomy in Culture). XII Conference of the SEAC, held in Kecskemét, August 26-28, 2004. E. 
+Pásztor (ed.). Strasbourg: Institute of Ethnology at Strasbourg University, 2007, pp. 79-85. 
+Belmonte, J. A., and Edwards, E. (2011) Archaeoastronomy: Archaeology, topography and celestial land-
+scape from the Nile to Rapa Nui. In Highlights of Spanish Astrophysics VI: Proceedings of the IX Scien-
+tific Meeting of the Spanish Astronomical Society (SEA). M. R. Zapatero Osorio, J. Gorgas, J. M. 
+Apellániz, J. R. Pardo, and A. Gil de Paz (ed.). Madrid: Sociedad Española de Astronomía, pp. 786-
+796. 
+Cristino, C., Vargas, P., and Izaurrieta R. (1981) Atlas Arqueológico de la Isla de Pascua. Universidad de Chile, 
+Santiago, Editorial Universitaria. 
+d’Ans, B. (2016) Moldes digitales de estructuras complejas y generación digital de paisajes culturales para 
+estudios 
+arqueo-astronómicos. 
+R. 
+Yachachiy 
+(ed.). 
+II 
+Semester 
+2016. 
+Available: 
+http://www.alberdi.de/MOLDIESCODIGPAIARQABARTIIS-16.pdf, retrieved February 4th 2017. 
+RE-APPRAISAL OF APPLIED ASTRONOMIC OBSERVATION AT PAPA UI HETU’U, RAPA NUI 
+147 
+ 
+Mediterranean Archaeology and Archaeometry, Vol. 18, No 4, (2018), pp. 139-147 
+d’Ans, B. (2014) Generación de paisajes culturales tipo fisheye para uso en planetarios digitales. Scientific 
+paper delivered at the IV Annual Meeting of the Interamerican Society for Astronomy in Culture 
+(SIAC), Instituto Peruano de Astronomía (I.P.A.), Planetarium Maria Reiche, Universidad Peruana 
+de Arte ORVAL. Rio de Janeiro, October 16. 
+Edwards, E., and Edwards’s A. (2010) Rapanui astronomy and ethnoastronomy: Flag 83 Expedition Report. 
+Expedition Report, The Explorers Club, October. 
+Edwards, E., and Edwards A. (2013) When the Universe Was an Island. Santiago, Hanga Roa Press, 2010. 
+Edwards, E., and Belmonte J. A. (2004) The Megalithic astronomy of Easter Island: A reassessment. Journal 
+For The History of Astronomy, Vol. 35, Part 4, N° 121, pp. 421-433. 
+Edwards, E., and Clark, M. (n.d.) Preliminary report of possible astronomical relationships in Quadrangle 
+31, Ahu Ra’ai, Easter Island, South Pacific. Unpublished.  
+Edwards, E., and Clark, M. (1984) Sun, moon, and volcanoes on Easter Island. Scientific paper delivered at 
+the First International Congress: Easter Island and Eastern Polynesia, Centro de Estudios de Isla de 
+Pascua, University of Chile. Hanga Roa, September 6-11. 
+Ferdon Jr., E. N. (1961) The Ceremonial site of Orongo. In Archaeology of Easter Island: Reports of the Norwegian 
+Archaeological Expedition to Easter Island and the East Pacific. T. Heyerdahl and E. N. Ferdon Jr. (ed.). 
+Santa Fe, School of American Research and Museum of New Mexico, Vol. I, pp. 221-72. 
+Kirch, P. V. (2004) Solstice observation in Mangareva, French Polynesia: New perspectives from archaeology. 
+Archives of the JAC, N° 18. 
+Lee, G. (1992). The Rock Art of Easter Island: Symbols of Power, Prayers to the Gods. The Institute of Archaeology, 
+UCLA, Monumenta Archaeologica, N° 17. 
+Lee, G., and Liller, W. (1987) “The sun stones of Easter Island: A re-evaluation.” Archaeoastronomy, N° 11, 
+pp. 1-11. 
+Lewis, D. (1974) “Voyaging stars: aspects of Polynesian and Micronesian astronomy.” In Philosophical Trans-
+actions for the Royal Society of London. Series A, Mathematical, Physical, and Engineering Sciences, 
+Vol. 276, Issue 1257, May, pp. 133-148. 
+Liller, W. (1989) “The megalithic astronomy of Easter Island: Orientations of ahu and moai.” Archaeoastron-
+omy, N° 13, 1989, pp. 21-48. 
+Liller, W. (1993) The Ancient Solar Observatories of Rapanui: the Archaeoastronomy of Easter Island. Woodland, 
+The Easter Island Foundation.  
+Liller, W. (2000) Ancient Astronomical Monuments in Polynesia. In Astronomy Across Cultures: The History of 
+Non-western Astronomy. H. Selin (ed.). Dordrecht, Kluwer Academic Publications, pp. 127-160. 
+Liller, W. (2004) Hetu’u Rapanui: The Archaeoastronomy of Easter Island. In Asteroids to Quasars: A Symposi-
+um Honouring William Liller.” P. M. Lugger and W. Liller (ed.). Cambridge, Cambridge University 
+Press, pp. 267-286. 
+Liller, W., and Duarte, J. (1986) Easter Island’s Solar ranging device, Ahu Huri A Urenga, and vicinity. Ar-
+chaeoastronomy, N° 9, pp. 39-51.  
+Makemson, M. (1941) The Morning Star Rises: An Account of Polynesian Astronomy. New Haven, Yale Universi-
+ty Press. 
+Métraux, A. (1960) Ethnology of Easter Island. Honolulu, Bernice P. Bishop Museum Press.  
+Mulloy, W. (1975) A solstice-oriented ahu on Easter Island. In Archaeology and Physical Anthropology in Ocean-
+ia, Vol. X, N° 1, pp. 13-18. 
+Routledge, K. (1919) The Mystery of Easter Island: The story of an Expedition. London, Hazell, Watson, and 
+Viney. 
+Routledge, K. (1911-1923) Papers of Mrs. Katherine Scoresby Routledge relating Chiefly to Easter Island. 
+Unpublished manuscript. Reels 1, 2, 3, 4, Pacific Manuscripts Bureau, Research School of Pacific 
+Studies, The Australian National University, Canberra. 
